@@ -8,7 +8,9 @@ import { logo, logored, menu, close } from '../assets'
 
 
 const Navbar = () => {
-  const { active, setActive } = useState("")
+  const [ active, setActive ] = useState("")
+  const [ toggle, setToggle ] = useState(false)
+
   return (
     <nav 
       className={`${styles.paddingX} w-full flex items-center py-5 top-0 z-20 bg-primary`}
@@ -29,11 +31,16 @@ const Navbar = () => {
                 className={`${
                   active === Link.title ? "text-white" : "text-secondary"
                 } hover:text-white text-[18px] font-medium cursor-pointer`}
+                onClick={()=>setActive(Link.title)}
               >
                 <a href={`#${Link.id}`}>{Link.title}</a>
               </li>
             ))}
           </ul>
+          <div className='sm:hidden flex flex-1 justify-end intems-center'>
+                <img src={toggle ? close : menu} alt="menu" className='w-[280px] h-[28px] object-contain curso-pointer' onClick={() => setToggle(!toggle)}/>
+                <div className={`${!toggle ? 'hidden' : 'flex'} p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}></div>
+          </div>
         </div>
       </nav>
   )
