@@ -19,9 +19,10 @@ const Navbar = () => {
             window.scrollTo(0, 0)
             }}
           >
-            <img src={logored} alt="logo-color" className='w-9 h-9 object-contain' />
-            <p>Shkelzen Dunisha <span>|Javascript Mastery</span></p>
+            <img src={logored} alt="logo" className='w-9 h-9 object-contain' />
+            <p className='text-blue text-[18px] font-bold cursor-pointer'>Shkelzen Dunisha <span className='sm:block hidden'>| Javascript Mastery</span></p>
           </Link>
+          <ul className='list-none hidden sm:flex flex-row gap-10'></ul>
         </div>
       </nav>
   )
