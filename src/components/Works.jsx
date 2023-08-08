@@ -5,8 +5,23 @@ import { styles } from '../styles';
 import { github } from '../assets'
 import { SectionWrapper } from '../hoc';
 import { projects } from '../constants';
-import { textVariant } from '../utils/motion';
+import { fadeIn, textVariant } from '../utils/motion';
 
+const ProjectCard = ( index, name, description, tags, image, source_code_link) => {
+ return (  <motion.div 
+    variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+      <Tilt
+        options ={{
+          max: 45,
+          scale: 1,
+          speed: 450
+        }}
+        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        >
+
+      </Tilt>
+    </motion.div>)
+}
 
 const Works = () => {
   return (
@@ -24,6 +39,16 @@ const Works = () => {
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'>
             Welcome to my web project portfolio! Explore a collection of meticulously crafted websites that blend creativity and functionality seamlessly. From stunning visual designs to intuitive user experiences, each project reflects a deep commitment to delivering online solutions that captivate, engage, and leave a lasting impression.
           </motion.p>
+      </div>
+
+      <div className='mt-20 flex flex-wrap gap-7'>
+        {projects.map((project, index) => (
+          <ProjectCard 
+            key={`project-${index}`}
+            index={index}
+            {...project}
+            />
+        ))}
       </div>
     </>
   )
