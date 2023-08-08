@@ -14,9 +14,17 @@ const Works = () => {
       <motion.div
         variants={textVariant()}
       >
-        <p className={styles.sectionSubText}>My Work</p>
+        <p className={styles.sectionSubText}>My work</p>
         <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
+
+      <div className="w-full flex">
+        <motion.p 
+          variants={fadeIn("", "", 0.1, 1)}
+          className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'>
+            Welcome to my web project portfolio! Explore a collection of meticulously crafted websites that blend creativity and functionality seamlessly. From stunning visual designs to intuitive user experiences, each project reflects a deep commitment to delivering online solutions that captivate, engage, and leave a lasting impression.
+          </motion.p>
+      </div>
     </>
   )
 }
